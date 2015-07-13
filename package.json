@@ -10,5 +10,10 @@
   },
   "bin": {
     "torrent-to-magnet": "./cli.js"
-  }
+  },
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "~2.2.1"
+  },
+  "test": "./node_modules/mocha/bin/mocha -u bdd test.js"
 }
