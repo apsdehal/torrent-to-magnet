@@ -15,5 +15,7 @@
     "chai": "^2.2.0",
     "mocha": "~2.2.1"
   },
-  "test": "./node_modules/mocha/bin/mocha -u bdd test.js"
+  "scripts": {
+      "test": "./node_modules/mocha/bin/mocha -u bdd test.js"
+  }
 }
