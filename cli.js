@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+var readTorrent = require('./index.js');
 
 if (!process.argv[2]) {
-	console.error('usage: torrent-to-magnet url');
+	console.error('Usage: torrent-to-magnet url');
 	process.exit(1);
 }
 

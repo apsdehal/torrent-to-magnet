@@ -17,19 +17,6 @@ module.exports = function (url, options, callback) {
     });
   };
 
-  var onResponse = function(err, response) {
-    if (err) {
-      return asyncCallback(err);
-    }
-    if (response.statusCode >= 400) {
-      return asyncCallback(new Error('Bad Response: ' + response.statusCode));
-    }
-    if (response.headers['content-encoding'] === 'gzip') {
-      return zlib.gunzip(response.body, onData);
-    }
-    onData(null, response.body);
-  };
-
   var onData = function(err, data) {
     if (err) {
       return asyncCallback(err);
@@ -43,8 +30,24 @@ module.exports = function (url, options, callback) {
     asyncCallback(err, uri);
   };
 
-	if (/^http?:/.test(url)) {
-		return request(extend({ url: url, encoding: null }, options), onResponse);
-	}
+  var onResponse = function(err, response) {
+    if (err) {
+      return asyncCallback(err);
+    }
+    if (response.statusCode >= 400) {
+      return asyncCallback(new Error('Bad Response: ' + response.statusCode));
+    }
+    if (response.headers['content-encoding'] === 'gzip') {
+      return zlib.gunzip(response.body, onData);
+    }
+    onData(null, response.body);
+  };
+
+
+  var httpRegex = new RegExp(/^https?:/);
+
+  if (httpRegex.test(url)) {
+  	return request(extend({ url: url, encoding: null }, options), onResponse);
+  }
 
 };
