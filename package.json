@@ -1,11 +1,11 @@
 {
   "name": "torrent-to-magnet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate magnet-uri from torrent file",
   "repository": "git://github.com/apsdehal/torrent-to-magnet.git",
   "dependencies": {
     "extend": "^3.0.0",
-    "parse-torrent": "~1.0.0",
+    "parse-torrent": "^5.3.0",
     "request": "~2.16.2"
   },
   "bin": {
