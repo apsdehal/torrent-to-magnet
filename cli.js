@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 var readTorrent = require('./index.js');
+var path = require('path');
 
 if (!process.argv[2]) {
-	console.error('Usage: torrent-to-magnet url');
+	console.error('Usage: ' + path.basename(process.argv[1]) + ' url');
 	process.exit(1);
 }
 
