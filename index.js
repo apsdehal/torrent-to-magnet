@@ -2,8 +2,10 @@ var request = require('request');
 var parseTorrent = require('parse-torrent');
 var zlib = require('zlib');
 var extend = require('extend');
+var fromCallback = require('universalify').fromCallback;
 
-module.exports = function (url, options, callback) {
+
+function torrentToMagnet(url, options, callback) {
   // Check if callback is passed
   if (!callback) {
     callback = options;
@@ -51,3 +53,6 @@ module.exports = function (url, options, callback) {
   }
 
 };
+
+
+module.exports = fromCallback(torrentToMagnet);

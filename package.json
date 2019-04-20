@@ -6,7 +6,8 @@
   "dependencies": {
     "extend": "^3.0.2",
     "parse-torrent": "^5.9.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "universalify": "^0.1.2"
   },
   "bin": {
     "torrent-to-magnet": "./cli.js"
