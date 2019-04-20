@@ -4,18 +4,18 @@
   "description": "Generate magnet-uri from torrent file",
   "repository": "git://github.com/apsdehal/torrent-to-magnet.git",
   "dependencies": {
-    "extend": "^3.0.0",
-    "parse-torrent": "^5.3.0",
-    "request": "~2.16.2"
+    "extend": "^3.0.2",
+    "parse-torrent": "^5.9.1",
+    "request": "^2.88.0"
   },
   "bin": {
     "torrent-to-magnet": "./cli.js"
   },
   "devDependencies": {
     "chai": "^2.2.0",
-    "mocha": "~2.2.1"
+    "mocha": "^6.1.4"
   },
   "scripts": {
-      "test": "./node_modules/mocha/bin/mocha -u bdd test.js"
+    "test": "./node_modules/mocha/bin/mocha -u bdd test.js"
   }
 }
