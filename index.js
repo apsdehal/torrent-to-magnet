@@ -47,11 +47,11 @@ function torrentToMagnet(url, options, callback) {
   };
 
 
-  var httpRegex = new RegExp(/^https?:/);
-
-  if (httpRegex.test(url)) {
-  	return request(extend({ url: url, encoding: null }, options), onResponse);
+  if (/^(?!https?:)/.test(url)) {
+	return asyncCallback(new Error('Expectation Failed: invalid url'));
   }
+
+  return request(extend({ url: url, encoding: null }, options), onResponse);
 
 };
 
