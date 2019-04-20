@@ -4,6 +4,7 @@
   "description": "Generate magnet-uri from torrent file",
   "repository": "git://github.com/apsdehal/torrent-to-magnet.git",
   "dependencies": {
+    "deasync": "^0.1.14",
     "extend": "^3.0.2",
     "parse-torrent": "^5.9.1",
     "request": "^2.88.0",
@@ -14,7 +15,8 @@
   },
   "devDependencies": {
     "chai": "^2.2.0",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "stream-expect": "^0.1.0"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha -u bdd test.js"

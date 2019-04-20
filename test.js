@@ -27,6 +27,14 @@ describe('promise', function () {
         });
 });
 
+describe('sync', function (done) {
+       it('should return correct magnet uri', function (done) {
+               this.timeout(15000);
+               assert.deepEqual(torrentToMagnet.sync(torrentUri), magnetUri);
+               done();
+       });
+});
+
 describe('cli', function (done) {
         it('should return correct magnet uri', function (done) {
                 this.timeout(15000);

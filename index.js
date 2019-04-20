@@ -3,6 +3,7 @@ var parseTorrent = require('parse-torrent');
 var zlib = require('zlib');
 var extend = require('extend');
 var fromCallback = require('universalify').fromCallback;
+var deasync = require('deasync');
 
 
 function torrentToMagnet(url, options, callback) {
@@ -56,3 +57,4 @@ function torrentToMagnet(url, options, callback) {
 
 
 module.exports = fromCallback(torrentToMagnet);
+module.exports.sync = deasync(torrentToMagnet);
