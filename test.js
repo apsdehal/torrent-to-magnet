@@ -1,12 +1,15 @@
 var assert = require('assert');
 var torrentToMagnet = require('./index.js');
 
+var torrentUri = 'https://yts.am/torrent/download/F0391DF653474D5729959270F5C7518FEF0697E6';
+var magnetUri = 'magnet:?xt=urn:btih:f0391df653474d5729959270f5c7518fef0697e6&dn=Glass+(2019)+%5BBluRay%5D+%5B720p%5D+%5BYTS.AM%5D&tr=udp%3A%2F%2F9.rarbg.com%3A2710%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce';
+
 it('should return correct magnet uri', function (done) {
 	this.timeout(15000);
-	torrentToMagnet('https://torcache.net/torrent/5027D8663961CF9A7955AA889E47835E45F458D5.torrent?title=[kat.cr]el.hombre.hormiga.antman.01.edicion.especial.metropoli.dos.portadas.cbr.spanish', 
+	torrentToMagnet(torrentUri,
 		{}, function (err, uri) {
 		assert.ok(err === null);
-		assert.deepEqual(uri, 'magnet:?xt=urn:btih:5027d8663961cf9a7955aa889e47835e45f458d5&dn=Antman+01+Edicion+Especial+Metropoli+dos+portadas.cbr&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.ccc.de%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.istole.it%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce');
+		assert.deepEqual(uri, magnetUri);
 		done();
 	});
 });
