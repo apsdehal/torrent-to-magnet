@@ -13,6 +13,9 @@
   "bin": {
     "torrent-to-magnet": "./cli.js"
   },
+  "engines": {
+    "node": ">= 6"
+  },
   "devDependencies": {
     "chai": "^2.2.0",
     "mocha": "^6.1.4",
