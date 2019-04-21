@@ -1,6 +1,8 @@
-#torrent-to-magnet [![Build Status](https://travis-ci.org/apsdehal/torrent-to-magnet.svg?branch=master)](https://travis-ci.org/apsdehal/torrent-to-magnet)
+# torrent-to-magnet
 
-Generates a magnet uri from a torrent file
+[![Build Status](https://travis-ci.org/apsdehal/torrent-to-magnet.svg?branch=master)](https://travis-ci.org/apsdehal/torrent-to-magnet)
+
+> Generates a magnet uri from a torrent file
 
 ## Install
 
@@ -14,8 +16,18 @@ Install via
 var torrentToMagnet = require('torrent-to-magnet');
 
 torrentToMagnet(torrentUrl, options, function (err, uri) {
-	// Do something with uri here
+	console.log(uri);
 });
+
+torrentToMagnet(torrentUrl, options).then(function (uri) {
+	console.log(uri);
+}).catch(function (err) {
+	console.error(err);
+});
+
+var uri = torrentToMagnet.sync(torrentUrl, options);
+console.log(uri);
+
 ```
 
 ## License
